@@ -1,10 +1,10 @@
 ### JavaScript的原型，原型链
 
-![](F:\面试题\image\原型.png)
+![](E:\blog\image\原型.png)
 
 每个函数都有一个 prototype 属性，函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的**实例**的原型
 
-![](F:\面试题\image\原型链.png)
+![](E:\blog\image\原型链.png)
 
 通过原型互相关联组成链状结构就是原型链（蓝色那条线）
 
