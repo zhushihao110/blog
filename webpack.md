@@ -4,7 +4,9 @@
 
 *webpack* 是一个现代 JavaScript 应用程序的*静态模块打包器*, 它会递归地构建一个*依赖关系图(dependency graph)*，其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个 *bundle*
 
-![image-20210506191356962](E:\blog\image\webpack.png)
+![../image/webpack](E:\blog\image\webpack.png)
+
+
 
 ### webpack的核心配置点
 
@@ -18,10 +20,29 @@
 
 module.rules：决定了如何处理项目中的不同类型的模块
 
+### webpack-dev-server
+
 #### devtool:  
 
 - 开发环境最优：evel-source-map/evel-cheap-source-map
 - 生产环境最优：source-map
+
+#### proxy: 
+
+可设置代理：解决本地开发跨域问题
+
+```
+proxy: {
+  "/api": {
+    target: "http://www.baidu.com",
+    pathRewrite: {"^/api" : "/"}，
+    changeOrigin： true,
+    headers: {}
+  }
+}
+```
+
+
 
 ### webpack优化
 
@@ -33,7 +54,7 @@ module.rules：决定了如何处理项目中的不同类型的模块
 #### 生产环境
 
 - loader 缓存： catchDiretory: true
-- code split:  分多个chunk打包
+- code split:  代码拆分打包
 - hash缓存：hash chunkhash  contenthash（配合HTTP强缓存）
 - 多进程打包(HappyPack)： webpack基于node，原有打包进程只有一个，利用插件，开启多进程打包
 - externals: 排除某些不需要打包的库, 如CDN引入的库
@@ -41,6 +62,6 @@ module.rules：决定了如何处理项目中的不同类型的模块
 
 ### Vite 
 
-![](E:\blog\image\vite.png)
+![../image/vite](E:\blog\image\vite.png)
 
 vite利用浏览器新特性,实现ES6模块加载，大大提升了开发效率，但目前不够成熟，功能不全面
