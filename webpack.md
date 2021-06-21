@@ -6,6 +6,8 @@
 
 ![../image/webpack](E:\blog\image\webpack.png)
 
+[](https://github.com/zhushihao110/blog/blob/master/image/webpack.png)
+
 
 
 ### webpack的核心配置点
