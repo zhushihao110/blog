@@ -4,7 +4,7 @@
 
 每个函数都有一个 prototype 属性，函数的 prototype 属性指向了一个对象，这个对象正是调用该构造函数而创建的**实例**的原型
 
-![](E:\blog\image\原型链.png)
+![](https://github.com/zhushihao110/blog/blob/master/image/%E5%8E%9F%E5%9E%8B%E9%93%BE.png)
 
 通过原型互相关联组成链状结构就是原型链（蓝色那条线）
 

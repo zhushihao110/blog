@@ -60,6 +60,6 @@ proxy: {
 
 ### Vite 
 
-![../image/vite](E:\blog\image\vite.png)
+![](https://github.com/zhushihao110/blog/blob/master/image/vite.png)
 
 vite利用浏览器新特性,实现ES6模块加载，大大提升了开发效率，但目前不够成熟，功能不全面
