@@ -18,6 +18,7 @@ const myFlat = (array) => {
 // myFlat(arr)
 // console.log(newArray)
 
+// ------- 作用域 ------
 var name = 'a'
 
 function outtr() {
@@ -28,4 +29,32 @@ function outtr() {
     }
     inner()
 }
-outtr()
+// outtr()
+
+// ------ 二分查找 ------
+/**
+ * @param {number[]} nums   [-1,0,3,5,9,12]
+ * @param {number} target  9
+ * @return {number}
+ */
+var search = function(nums, target) {
+    let right = nums.length -1
+    let left = 0
+    if(target > nums[right] || target < nums[left]) {
+        return -1
+    }
+    while(right >= left) {
+        let mid = Math.floor((right + left)/2)
+        let midValue = nums[mid]
+        if(target > midValue) {
+            left = mid +1 
+        }else if(target < midValue){
+            right = mid - 1
+        }else {
+            return mid
+        }
+    }
+    return -1
+};
+
+// console.log(search([-1,0,3,5,9,12], 9))
