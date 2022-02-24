@@ -20,7 +20,6 @@ const myFlat = (array) => {
 
 // ------- 作用域 ------
 var name = 'a'
-
 function outtr() {
     var name = 'b'
     function inner() {
@@ -58,3 +57,46 @@ var search = function(nums, target) {
 };
 
 // console.log(search([-1,0,3,5,9,12], 9))
+
+// ------ 双指针 ------
+// 移动0 到最右边，其他非0 保持位置不变
+var moveZeroes = function(nums) {
+    let left = 0
+    let right = 0
+    let l = nums.length
+    while(right < l) {
+        if(nums[right] != 0) {
+            nums[left] = nums[right]
+            left++
+        }
+        right++
+    }
+    for(let i = left ; i < l; i++) {
+        nums[i] = 0
+    }
+    console.log(nums)
+};
+// moveZeroes([0])
+
+// 翻转字符串的 单个单词， 整个字符串顺序不变
+var reverseWords = function(s) {
+    let arr = s.split(" ")
+    console.log(arr)
+    for(let i=0; i<arr.length; i++) {
+        let newArr = arr[i].split("")
+        console.log(newArr)
+        let left = 0
+        let right  = newArr.length - 1
+        while(left <right) {
+            let temp = newArr[right]
+            newArr[right] = newArr[left]
+            newArr[left] = temp
+            left++
+            right--
+        }
+        arr[i] = newArr.join("")
+    }
+    s = arr.join(" ")
+    return s
+};
+//console.log(reverseWords("God Ding"))
