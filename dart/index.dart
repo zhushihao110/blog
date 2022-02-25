@@ -22,11 +22,12 @@ void main() {
   // print(list?.length);
   // 插值法，类似于JS
   // print('${person.name}, ${person.age}');
-  person.arr.forEach((element) => print(element));
+  // person.arr.forEach((element) => print(element));
+  print(person.arr.indexOf('zsh'));
 
   // 继承中得方法重写
-  SupGeek geek1 = new SupGeek();
-  SubGeek geek2 = new SubGeek();
-  geek1.show();
-  geek2.show();
+  // SupGeek geek1 = new SupGeek();
+  // SubGeek geek2 = new SubGeek();
+  // geek1.show();
+  // geek2.show();
 }
