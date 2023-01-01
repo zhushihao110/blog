@@ -100,3 +100,24 @@ var reverseWords = function(s) {
     return s
 };
 //console.log(reverseWords("God Ding"))
+
+// 字符串不出现重复最长长度
+// * 用一个滑动窗口装没有重复的字符，枚举字符记录最大值即可
+//  * 对于遇到重复字符如何收缩窗口大小？
+// * 我们可以用 map 维护字符的索引，遇到相同的字符，把左边界移动过去即可
+// * 挪动的过程中记录最大长度
+const str = 'asdafgjhcdsafc'
+const lengthOfStr = (str) => {
+    let map = new Map()
+    let res = 0
+    let i = -1
+    for(let j = 0; j< str.length; j++) {
+        if(map.has(str[j])) {
+            i = Math.max(i, map.get(str[j]))
+        } 
+        res = Math.max(res, j-i)
+        map.set(str[j], j)
+    }
+    return res
+}
+console.log('lengthOfStr', lengthOfStr(str))
