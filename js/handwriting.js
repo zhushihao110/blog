@@ -93,3 +93,11 @@ function fibonacci(n) {
   return arr[arr.length - 1];
 }
 // console.log(fibonacci(6))
+
+let sum = 1
+for(let i = 1; i <= 30; i++) {
+    // console.log(i)
+    sum = sum * 2
+
+}
+console.log(sum)
