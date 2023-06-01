@@ -94,10 +94,58 @@ function fibonacci(n) {
 }
 // console.log(fibonacci(6))
 
-let sum = 1
-for(let i = 1; i <= 30; i++) {
-    // console.log(i)
-    sum = sum * 2
+/* 
+  数组对象转 树状结构
+  把数组的每一项 放到对象里面去，根据ID来存放
+*/
 
+const toTree = (arr) => {
+  let obj = {}
+  if(!Array.isArray(arr) || arr.length === 0) {
+    return obj
+  }
+  // !将数组的每一项放到 对象里面去
+  let map = {}
+  arr.forEach((item) => {
+    map[item.id] = item
+  })
+  arr.forEach((item) => {
+    // 根据parentId 来拿到父级对象
+    let parent = map[item.parentId]
+    if(parent) {
+      // 有parent 则判断是否有children， 没有就默认为数组，把item添加进去
+      parent.children = parent.children || []
+      parent.children.push(item)
+      
+    }else {
+      // 没有找到 parent 则默认为最高级
+      // 此处不能复制对象，直接赋值即可
+      obj = item
+    }
+  })
+
+  return obj
 }
-console.log(sum)
+const arr = [
+  {
+    label: '1',
+    id: 1,
+    parentId: null
+  },
+  {
+    label: '2',
+    id: 2,
+    parentId: 1
+  },
+  {
+    label: '3',
+    id: 3,
+    parentId: 2
+  },
+  {
+    label: '4',
+    id: 4,
+    parentId: 3
+  }
+]
+console.log(toTree(arr))
