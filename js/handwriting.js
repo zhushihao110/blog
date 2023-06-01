@@ -96,6 +96,7 @@ function fibonacci(n) {
 
 /* 
   数组对象转 树状结构
+  利用对象印射来实现
   把数组的每一项 放到对象里面去，根据ID来存放
 */
 
@@ -148,4 +149,25 @@ const arr = [
     parentId: 3
   }
 ]
-console.log(toTree(arr))
+// console.log(toTree(arr))
+
+// 递归实现 数组转 树
+const arrTotree = (arr, parentId) => {
+  //   return arr.filter((item) => item.parentId === parentId).map((item) => {
+  //     return {
+  //       ...item,
+  //       children:arrTotree(arr, item.id)
+  //     }
+  //   })
+  let data = []
+      arr.forEach(element => {
+         if(element.parentId === parentId) {
+          data.push({
+              ...element,
+              children: arrTotree(arr, element.id)
+          })
+         } 
+      })
+      return data
+  }
+  console.log(arrTotree(arr, null))
